@@ -8,7 +8,7 @@
         ]
     },
     "branch": "master",
-    "is_contrib": false,
+    "is_contrib": true,
     "_links": {
         "repository": "github.com/rl-ema/recipes",
         "origin_template": "{package}:{version}@github.com/rl-ema/recipes:master",
