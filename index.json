@@ -10,7 +10,7 @@
     "branch": "master",
     "is_contrib": false,
     "_links": {
-        "repository": "github.com/your-github-account-name/your-recipes-repository",
+        "repository": "github.com/rl-ema/recipes",
         "origin_template": "{package}:{version}@github.com/rl-ema/recipes:master",
         "recipe_template": "https://api.github.com/repos/rl-ema/recipes/contents/{package_dotted}.{version}.json"
     }
