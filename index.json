@@ -4,7 +4,8 @@
     },
     "recipes": {
         "redlink/user-bundle": [
-            "dev-master"
+            "dev-master",
+            "1.0"
         ]
     },
     "branch": "master",
