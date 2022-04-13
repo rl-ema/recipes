@@ -1,0 +1,63 @@
+{
+    "manifests": {
+        "redlink/user-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Redlink\\UserBundle\\RedlinkUserBundle": [
+                        "all"
+                    ],
+                    "Stof\\DoctrineExtensionsBundle\\StofDoctrineExtensionsBundle": [
+                        "all"
+                    ],
+                    "SymfonyCasts\\Bundle\\VerifyEmail\\SymfonyCastsVerifyEmailBundle": [
+                        "all"
+                    ]
+                },
+                "container": {
+                    "google_recaptcha_url": "%env(GOOGLE_RECAPTCHA_URL)%",
+                    "google_recaptcha_site_key": "%env(GOOGLE_RECAPTCHA_SITE_KEY)%",
+                    "google_recaptcha_secret_key": "env(GOOGLE_RECAPTCHA_SECRET)%"
+                },
+                "env": {
+                    "#To use Google Recaptcha, you must register a site on Recaptcha's admin panel:": "",
+                    "#https://www.google.com/recaptcha/admin": "",
+                    "GOOGLE_RECAPTCHA_SITE_KEY": "<YOUR_KEY>",
+                    "GOOGLE_RECAPTCHA_SECRET": "<YOUR_SECRET>",
+                    "GOOGLE_RECAPTCHA_URL": "https://www.google.com/recaptcha/api.js"
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%"
+                }
+            },
+            "files": {
+                "config/packages/redlink_user.yaml": {
+                    "contents": [
+                        "redlink_user:",
+                        "   login_target: 'login'",
+                        "   retry_ttl:  1800 #seconds",
+                        "   use_capture: true",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/packages/rate_limiter.yaml": {
+                    "contents": [
+                        "framework:",
+                        "   rate_limiter:",
+                        "       redlink_user_registration_register:",
+                        "           policy: 'fixed_window'",
+                        "           limit: 5",
+                        "           interval: '2 minutes'",
+                        "       redlink_user_resetting_send_email:",
+                        "           policy: 'fixed_window'",
+                        "           limit: 5",
+                        "           interval: '2 minutes'",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "49adbb197dde9b323de705f79b153c5db77e8cef"
+        }
+    }
+}
